@@ -1,7 +1,8 @@
 class Animals:
     def __init__(self, name):
         self.name = name
-
+        self.happy = None
+        self.energy = None
 
     def display_info(self):
         print("Animals in Zoo:", self.__class__.__name__,"-", self.name , ":", 
@@ -33,8 +34,6 @@ class Zoo:
     def __init__(self, zoo_name):
         self.animals = []
         self.name = zoo_name
-        # self.happy = happy
-        # self.energy = energy
 
     def add_lion(self, name):
         self.animals.append( Lion(name) )
@@ -49,10 +48,12 @@ class Zoo:
         return self
 
     """This part doesn't work, i will finish it later   """
-    # def feed(self, name):  
-        # self.animals.happy += 10
-        # # self.animals.energy += 10
-        # return self
+    def feed(self, name):  
+        for a in self.animals:
+            if a.name == name:
+                a.happy += 10
+                a.energy += 10
+        return self
 
     def print_all_info(self):
         print("-"*20, self.name, "-"*20)
@@ -66,7 +67,7 @@ zoo1.add_lion("Nala").add_lion("Simba")
 zoo1.add_tiger("Rajah").add_tiger("Shere Khan")
 zoo1.add_bear("Browny")
 zoo1.print_all_info()
+print()
 
-
-# zoo1.feed("Nala")
-# zoo1.print_all_info()
+zoo1.feed("Nala").feed("Shere Khan").feed("Browny").feed("Browny")
+zoo1.print_all_info()
