@@ -22,13 +22,14 @@ class Tiger(Animals):
         self.name = name
         self.happy = 50
         self.energy = 70
-        
+
 
 class Bear(Animals):
     def __init__(self, name):
         self.name = name
         self.happy = 80
         self.energy = 20
+
 
 class Zoo:
     def __init__(self, zoo_name):
@@ -47,7 +48,6 @@ class Zoo:
         self.animals.append( Bear(name) )
         return self
 
-    """This part doesn't work, i will finish it later   """
     def feed(self, name):  
         for a in self.animals:
             if a.name == name:
